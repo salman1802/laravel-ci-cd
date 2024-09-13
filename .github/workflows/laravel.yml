@@ -32,13 +32,13 @@ jobs:
       run: php artisan migrate
     - name: Run seed
       run: php artisan db:seed
-    - name: Generate passport keys
-      run: |
-        if [ ! -f storage/oauth-private.key ] || [ ! -f storage/oauth-public.key ]; then
-          php artisan passport:install
-        else
-          echo "Passport keys already exist"
-        fi
+    # - name: Generate passport keys
+    #   run: |
+    #     if [ ! -f storage/oauth-private.key ] || [ ! -f storage/oauth-public.key ]; then
+    #       php artisan passport:install
+    #     else
+    #       echo "Passport keys already exist"
+    #     fi
     - name: Check and create storage link
       run: |
         if [ ! -L public/storage ]; then
